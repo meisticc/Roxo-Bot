@@ -40,7 +40,7 @@ end
 
 --[[ end configs, don't edit this especially if you have no idea what Lua is lmao ]]--
 
-local Roxobotversion = "v2.4.7 Public Release"
+local Roxobotversion = "v2.4.7 Private Release"
 local Roxobotchangelogs = "Added a few commands!"
 
 local gameData = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
