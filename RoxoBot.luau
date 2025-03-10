@@ -68,17 +68,15 @@ local function chat(msg)
 end
 
 local funfacts = {
-	"Roxobot was created on 11/17/22.",
-	"The developer of Roxobot has made 2 other scripts: Lunar AI and LunarHub.",
-	"The khord server uses an external invite service so we can get a custom invite because we don't have nitro. d.io/LunarCrocs",
+	"Roxobot was created on 3/9/25.",
+	"The developer of Roxobot has made 2 other scripts.",
 	"My dad came back from getting the milk 0.03 seconds ago.",
 	"We are playing Roblox.",
 	"If you spend a penny, you lose that penny.",
 	"Press 'Y' to jump.",
 	"Commands are added to Roxobot almost every day.",
-	"Roxobot was developed and scripted by probablYnicK.",
+	"Roxobot was developed and scripted by 781z.",
 	"Roxobot is a self-bot, meaning that, yes, I AM A REAL PERSON. I'm watching!",
-	"Khord server: d.io/LunarCrocs",
 	"Among Us is extremely old.",
 	"Press Alt + F4 to get 1 billion dollars on the spot.",
 	"Press U to walk forward.",
