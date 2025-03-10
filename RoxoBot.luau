@@ -10,7 +10,7 @@ local HH = bot.Character.Humanoid.HipHeight
 
 for i, plr in pairs(game.Players:GetPlayers()) do
 	for i, obj in pairs(plr:GetChildren()) do
-		if obj.Name == "RoxoBotBlacklist" then
+		if obj.Name == "RoxobotBlacklist" then
 			obj:Destroy()		
 		end
 	end
@@ -22,7 +22,7 @@ local whitelisted = {
 	bot.Name,
 }
 
-local showbotchat = _G.showBotChat or false --setting this to true will cause all messages sent by either commands or RoxoBot to begin with [RoxoBot]
+local showbotchat = _G.showBotChat or false --setting this to true will cause all messages sent by either commands or Roxobot to begin with [Roxobot]
 local allwhitelisted = _G.defaultAllWhitelisted or false --set to true if you want everyone to be whitelisted, nicK is not responsible for anything players make you do or say.
 local randommoveinteger = _G.defaultRandomMoveInteger or 15 --interval in which how long randommove waits until choosing another direction
 local prefix = _G.defaultPrefix or "." --DO NOT SET TO MORE THAN 1 CHARACTER!
@@ -34,14 +34,14 @@ if _G.preWhitelisted and type(_G.preWhitelisted) == "table" then
 end
 
 if prefix:len() > 1 then
-	warn("RoxoBot // Prefix cannot be more than 1 character long!")
+	warn("Roxobot // Prefix cannot be more than 1 character long!")
 	return
 end
 
 --[[ end configs, don't edit this especially if you have no idea what Lua is lmao ]]--
 
-local RoxoBotversion = "v2.1.7 Public Beta Release"
-local RoxoBotchangelogs = "Added a few commands!"
+local Roxobotversion = "v0.1.3 Public Beta Release"
+local Roxobotchangelogs = "Added a few commands!"
 
 local gameData = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
 local status = nil
@@ -61,27 +61,29 @@ local TI = TweenInfo.new(
 
 local function chat(msg)
 	if showbotchat == true then
-		game.TextChatService.TextChannels.RBXGeneral:SendAsync("[RoxoBot]: " .. msg)
+		game.TextChatService.TextChannels.RBXGeneral:SendAsync("[Roxobot]: " .. msg)
 	else
 		game.TextChatService.TextChannels.RBXGeneral:SendAsync(msg)
 	end
 end
 
 local funfacts = {
-	"RoxoBot was created on 3/9/25.",
-	"The developer of RoxoBot has made 2 other scripts.",
+	"Roxobot was created on 11/17/22.",
+	"The developer of Roxobot has made 2 other scripts: Lunar AI and LunarHub.",
+	"The khord server uses an external invite service so we can get a custom invite because we don't have nitro. d.io/LunarCrocs",
 	"My dad came back from getting the milk 0.03 seconds ago.",
 	"We are playing Roblox.",
 	"If you spend a penny, you lose that penny.",
 	"Press 'Y' to jump.",
-	"Commands are added to RoxoBot almost every day.",
-	"RoxoBot was developed and scripted by probablYnicK.",
-	"RoxoBot is a self-bot, meaning that, yes, I AM A REAL PERSON. I'm watching!",
+	"Commands are added to Roxobot almost every day.",
+	"Roxobot was developed and scripted by probablYnicK.",
+	"Roxobot is a self-bot, meaning that, yes, I AM A REAL PERSON. I'm watching!",
+	"Khord server: d.io/LunarCrocs",
 	"Among Us is extremely old.",
 	"Press Alt + F4 to get 1 billion dollars on the spot.",
 	"Press U to walk forward.",
 	"At the time of writing this fun fact list, there are 6 people in the server.",
-	"RoxoBot was first tested in the game: a literal baseplate.",
+	"Roxobot was first tested in the game: a literal baseplate.",
 	"I found a lucky penny!",
 	"You found this fun fact.",
 	"The sandwich was invented in the 1700s.",
@@ -227,7 +229,7 @@ commands = {
 	reset = {
 		Name = "reset",
 		Aliases = {"re"},
-		Use = "Respawns RoxoBot!",
+		Use = "Respawns Roxobot!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			local hum = bot.Character:FindFirstChildWhichIsA("Humanoid")
@@ -240,18 +242,18 @@ commands = {
 	rejoin = {
 		Name = "rejoin",
 		Aliases = {"rj"},
-		Use = "Rejoins RoxoBot!",
+		Use = "Rejoins Roxobot!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			if speaker ~= bot.Name and altctrl == false then chat("Invalid permissions to rejoin.") return end
 		
 			if #game.Players:GetPlayers() <= 1 then
 				print("Rejoining (NEW SERVER)")
-				game.Players.LocalPlayer:Kick("\nRoxoBot - Rejoining...")
+				game.Players.LocalPlayer:Kick("\nRoxobot - Rejoining...")
 				wait()
 				game:GetService('TeleportService'):Teleport(game.PlaceId, game.Players.LocalPlayer)
 			else
-				print("RoxoBot is rejoining...")
+				print("Roxobot is rejoining...")
 				game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
 			end
 		end,
@@ -259,7 +261,7 @@ commands = {
 	catch = {
 		Name = "catch",
 		Aliases = {"catchin4k", "c14"},
-		Use = "Makes RoxoBot catch the given player in 4K!",
+		Use = "Makes Roxobot catch the given player in 4K!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			local plr
@@ -285,14 +287,14 @@ commands = {
 			
 			if plr then
 				bot.Character:SetPrimaryPartCFrame(CFrame.new(plr.Character.HumanoidRootPart.Position))
-				chat("📸 CAUGHT IN 4K BY RoxoBot 📸")
+				chat("📸 CAUGHT IN 4K BY Roxobot 📸")
 			end
 		end,
 	},
 	ping = {
 		Name = "ping",
 		Aliases = {"getping"},
-		Use = "Chats RoxoBot's ping!",
+		Use = "Chats Roxobot's ping!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			chat("Ping: " .. tostring(math.floor(game:GetService("Stats").PerformanceStats.Ping:GetValue() + 0.5)) .. " ms")
@@ -301,7 +303,7 @@ commands = {
 	executor = {
 		Name = "executor",
 		Aliases = {"identifyexecutor", "getexec", "exec"},
-		Use = "Gives you the executor that is running RoxoBot!",
+		Use = "Gives you the executor that is running Roxobot!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			chat("Executor: " .. identifyexecutor() or "Unknown")
@@ -310,11 +312,11 @@ commands = {
 	lua = {
 		Name = "lua",
 		Aliases = {"runlua", "run", "luau"},
-		Use = "Gives you the executor that is running RoxoBot!",
+		Use = "Gives you the executor that is running Roxobot!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			if speaker ~= bot.Name then
-				chat("You do not have permission to run LuaU from RoxoBot.")
+				chat("You do not have permission to run LuaU from Roxobot.")
 				return
 			end
 			
@@ -334,7 +336,7 @@ commands = {
 	setinterval = {
 		Name = "setinterval",
 		Aliases = {"setrandommoveinterval", "setint", "setinteger"},
-		Use = "Respawns RoxoBot!",
+		Use = "Respawns Roxobot!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			if speaker ~= bot.Name then return end
@@ -348,7 +350,7 @@ commands = {
 	toggleall = {
 		Name = "toggleall",
 		Aliases = {"all", "allwl", "wlall"},
-		Use = "Respawns RoxoBot!",
+		Use = "Respawns Roxobot!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			task.spawn(function()
@@ -392,7 +394,7 @@ commands = {
 	unfollow = {
 		Name = "unfollow",
 		Aliases = {"unfollowplr"},
-		Use = "Respawns RoxoBot!",
+		Use = "Respawns Roxobot!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -407,7 +409,7 @@ commands = {
 	follow = {
 		Name = "follow",
 		Aliases = {"followplr"},
-		Use = "Makes RoxoBot follow you or the given player!",
+		Use = "Makes Roxobot follow you or the given player!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			local plr
@@ -481,14 +483,14 @@ commands = {
 			local chosen = choosefrom[math.random(1, #choosefrom)]
 			
 			if chosen then
-				chat("RoxoBot chose: " .. chosen)
+				chat("Roxobot chose: " .. chosen)
 			end
 		end,
 	},
 	dance = {
 		Name = "dance",
 		Aliases = {},
-		Use = "Makes RoxoBot dance!",
+		Use = "Makes Roxobot dance!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			game:GetService("Players"):Chat("/e dance")
@@ -497,7 +499,7 @@ commands = {
 	point = {
 		Name = "point",
 		Aliases = {},
-		Use = "Makes RoxoBot point!",
+		Use = "Makes Roxobot point!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			game:GetService("Players"):Chat("/e point")
@@ -506,7 +508,7 @@ commands = {
 	stadium = {
 		Name = "stadium",
 		Aliases = {},
-		Use = "Makes RoxoBot do the stadium emote!",
+		Use = "Makes Roxobot do the stadium emote!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			game:GetService("Players"):Chat("/e stadium")
@@ -515,7 +517,7 @@ commands = {
 	cheer = {
 		Name = "cheer",
 		Aliases = {},
-		Use = "Makes RoxoBot cheer!",
+		Use = "Makes Roxobot cheer!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			game:GetService("Players"):Chat("/e cheer")
@@ -524,7 +526,7 @@ commands = {
 	wave = {
 		Name = "wave",
 		Aliases = {},
-		Use = "Makes RoxoBot wave!",
+		Use = "Makes Roxobot wave!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			game:GetService("Players"):Chat("/e wave")
@@ -533,7 +535,7 @@ commands = {
 	sit = {
 		Name = "sit",
 		Aliases = {},
-		Use = "Makes RoxoBot sit!",
+		Use = "Makes Roxobot sit!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			bot.Character.Humanoid.Sit = true
@@ -542,7 +544,7 @@ commands = {
 	salute = {
 		Name = "salute",
 		Aliases = {},
-		Use = "Makes RoxoBot salute!",
+		Use = "Makes Roxobot salute!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			game.Players:Chat("/e salute")
@@ -551,7 +553,7 @@ commands = {
 	jump = {
 		Name = "jump",
 		Aliases = {},
-		Use = "Makes RoxoBot jump!",
+		Use = "Makes Roxobot jump!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			bot.Character.Humanoid.Jump = true
@@ -575,7 +577,7 @@ commands = {
 	whitelist = {
 		Name = "whitelist",
 		Aliases = {"wl"},
-		Use = "Whitelists a player, meaning they can use RoxoBot. An owner-only command!",
+		Use = "Whitelists a player, meaning they can use Roxobot. An owner-only command!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			local towhitelist = args[2]
@@ -586,7 +588,7 @@ commands = {
 				if towhitelist == "all" then
 					for i, player in pairs(game.Players:GetPlayers()) do
 						table.insert(whitelisted, player.Name)
-						local bl = player:FindFirstChild("RoxoBotBlacklist")
+						local bl = player:FindFirstChild("RoxobotBlacklist")
 						if bl then bl:Destroy() else warn(player.DisplayName .. " was not blacklisted!") end
 					end
 					
@@ -598,7 +600,7 @@ commands = {
 					
 					if plr then
 						table.insert(whitelisted, plr.Name)
-						local bl = plr:FindFirstChild("RoxoBotBlacklist")
+						local bl = plr:FindFirstChild("RoxobotBlacklist")
 						if bl then bl:Destroy() else warn(player.DisplayName .. " was not blacklisted!") end
 						chat("Whitelisted " .. plr.DisplayName .. "! Type .cmds to view commands.")
 					else
@@ -611,7 +613,7 @@ commands = {
 	blacklist = {
 		Name = "blacklist",
 		Aliases = {"bl"},
-		Use = "Blacklists a player meaning they cannot use RoxoBot. Owner-only command!",
+		Use = "Blacklists a player meaning they cannot use Roxobot. Owner-only command!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			local toblacklist = args[2]
@@ -621,13 +623,13 @@ commands = {
 			if toblacklist then
 				if toblacklist == "all" then
 					for i, p in pairs(game.Players:GetPlayers()) do
-						local alrbl = p:FindFirstChild("RoxoBotBlacklist")
+						local alrbl = p:FindFirstChild("RoxobotBlacklist")
 						
 						if alrbl then alrbl:Destroy() end
 					
 						local new = Instance.new("BoolValue")
 						new.Parent = p
-						new.Name = "RoxoBotBlacklist"
+						new.Name = "RoxobotBlacklist"
 						new.Value = true
 					end
 					
@@ -638,13 +640,13 @@ commands = {
 					local plr = searchPlayers(toblacklist)
 					
 					if plr then
-						local alrbl = plr:FindFirstChild("RoxoBotBlacklist")
+						local alrbl = plr:FindFirstChild("RoxobotBlacklist")
 						
 						if alrbl then alrbl:Destroy() end
 					
 						local new = Instance.new("BoolValue")
 						new.Parent = plr
-						new.Name = "RoxoBotBlacklist"
+						new.Name = "RoxobotBlacklist"
 						new.Value = true
 						alwhitelisted = false
 						chat("Blacklisted " .. plr.DisplayName .. "! They can no longer run commands.")
@@ -682,7 +684,7 @@ commands = {
 				local rnd = math.random(tonumber(args[2]), tonumber(args[3]))
 				
 				if rnd then
-					chat("RoxoBot // Generated random number between " .. args[2] .. " and " .. args[3] .. ": " .. rnd)
+					chat("Roxobot // Generated random number between " .. args[2] .. " and " .. args[3] .. ": " .. rnd)
 				else
 					chat("Aw, snap! An error occured while generating a random number.")
 				end
@@ -692,7 +694,7 @@ commands = {
 	bring = {
 		Name = "bring",
 		Aliases = {},
-		Use = "Brings RoxoBot to the player that chatted the command.",
+		Use = "Brings Roxobot to the player that chatted the command.",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -707,7 +709,7 @@ commands = {
 	copychat = {
 		Name = "copychat",
 		Aliases = {"cc", "copyc", "cchat"},
-		Use = "Makes RoxoBot copy everything the given player says.",
+		Use = "Makes Roxobot copy everything the given player says.",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -735,7 +737,7 @@ commands = {
 	uncopychat = {
 		Name = "uncopychat",
 		Aliases = {"uncc", "uncopyc", "uncchat"},
-		Use = "Makes RoxoBot stop copying everything the copychat player says.",
+		Use = "Makes Roxobot stop copying everything the copychat player says.",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -743,7 +745,7 @@ commands = {
 					chat("Stopped copying " .. copychatplayer.DisplayName .. "!")
 					copychatplayer = nil
 				else
-					chat("RoxoBot is not copying anyone!")
+					chat("Roxobot is not copying anyone!")
 				end
 			end)
 		end,
@@ -751,7 +753,7 @@ commands = {
 	to = {
 		Name = "to",
 		Aliases = {},
-		Use = "Teleports RoxoBot to the <player> given.",
+		Use = "Teleports Roxobot to the <player> given.",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -778,7 +780,7 @@ commands = {
 	walkto = {
 		Name = "walkto",
 		Aliases = {"come"},
-		Use = "Makes RoxoBot walk to you or the given player!",
+		Use = "Makes Roxobot walk to you or the given player!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -803,7 +805,7 @@ commands = {
 	setprefix = {
 		Name = "setprefix",
 		Aliases = {"prefix"},
-		Use = "Sets the prefix of RoxoBot! Owner-only command!",
+		Use = "Sets the prefix of Roxobot! Owner-only command!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -824,7 +826,7 @@ commands = {
 	setstatus = {
 		Name = "setstatus",
 		Aliases = {},
-		Use = "Sets the status of RoxoBot. When a status is set, the bot will no longer take commands.",
+		Use = "Sets the status of Roxobot. When a status is set, the bot will no longer take commands.",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -871,11 +873,11 @@ commands = {
 	time = {
 		Name = "time",
 		Aliases = {"currenttime"},
-		Use = "Gives you RoxoBot's current time in its timezone.",
+		Use = "Gives you Roxobot's current time in its timezone.",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
-				chat("RoxoBot's current time is: " .. os.date("%I:%M:%S %p"))
+				chat("Roxobot's current time is: " .. os.date("%I:%M:%S %p"))
 			end)
 		end,
 	},
@@ -903,7 +905,7 @@ commands = {
 	walkspeed = {
 		Name = "walkspeed",
 		Aliases = {"speed"},
-		Use = "Sets RoxoBot's walkspeed to <speed>!",
+		Use = "Sets Roxobot's walkspeed to <speed>!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -924,11 +926,11 @@ commands = {
 	fps = {
 		Name = "fps",
 		Aliases = {},
-		Use = "Chats RoxoBot's current FPS!",
+		Use = "Chats Roxobot's current FPS!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
-				chat("RoxoBot's FPS is: " .. tostring(math.round(game.Workspace:GetRealPhysicsFPS())))
+				chat("Roxobot's FPS is: " .. tostring(math.round(game.Workspace:GetRealPhysicsFPS())))
 			end)
 		end,
 	},
@@ -1056,7 +1058,7 @@ commands = {
 	randommove = {
 		Name = "randommove",
 		Aliases = {"rndmove", "autowalk"},
-		Use = "Toggles RoxoBot's random movement feature!",
+		Use = "Toggles Roxobot's random movement feature!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -1073,7 +1075,7 @@ commands = {
 	rush = {
 		Name = "rush",
 		Aliases = {"rushbegin"},
-		Use = "Makes RoxoBot turn into Rush from DOORS!",
+		Use = "Makes Roxobot turn into Rush from DOORS!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			pcall(function()
@@ -1205,7 +1207,7 @@ local cmdcon = messageReceived:Connect(function(data)
 	local msg = string.lower(message)
 	
 	if string.sub(msg, 1, 1) == prefix then
-		if speakerplayer:FindFirstChild("RoxoBotBlacklist") then
+		if speakerplayer:FindFirstChild("RoxobotBlacklist") then
 			return
 		end
 
@@ -1222,14 +1224,14 @@ local cmdcon = messageReceived:Connect(function(data)
 		local cmd = checkCommands(args[1])
 		
 		if status ~= nil and speaker ~= bot.Name then
-			chat("RoxoBot Status // " .. status .. " // Commands are disabled.")
+			chat("Roxobot Status // " .. status .. " // Commands are disabled.")
 			return
 		end
 		
 		if cmd ~= nil then
 			if cmd.Enabled == false then
 				chat("The command " .. cmd.Name .. " is currently disabled. Please request it to be re-enabled by " .. bot.DisplayName .. ".")
-				print("RoxoBot CMDLogs // " .. speaker .. " attempted to run command: " .. cmd.Name .. " with arguments: " .. tts(args) .. "while the command was disabled.")
+				print("Roxobot CMDLogs // " .. speaker .. " attempted to run command: " .. cmd.Name .. " with arguments: " .. tts(args) .. "while the command was disabled.")
 				return
 			else
 				cmd.CommandFunction(message, args, speaker)
@@ -1244,7 +1246,7 @@ local cmdcon = messageReceived:Connect(function(data)
 					return r
 				end
 				
-				print("RoxoBot CMDLogs // " .. speaker .. " ran command: " .. cmd.Name .. " with arguments: " .. tts(args))
+				print("Roxobot CMDLogs // " .. speaker .. " ran command: " .. cmd.Name .. " with arguments: " .. tts(args))
 			end
 		else
 			warn("Could not find command: " .. args[1] .. "!")
@@ -1255,15 +1257,15 @@ local cmdcon = messageReceived:Connect(function(data)
 end)
 
 bot.Chatted:Connect(function(msg)
-	if (string.lower(msg) == "Roxo.disable()" or string.lower(msg) == "Roxo.disconnect()") and disconnected == false then
+	if (string.lower(msg) == "lunar.disable()" or string.lower(msg) == "lunar.disconnect()") and disconnected == false then
 		cmdcon:Disconnect()
 		disconnected = true
 		wait()
-		chat("Successfully disconnected RoxoBot.")
+		chat("Successfully disconnected Roxobot.")
 	end
 end)
 
-local req = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or (Roxo and Roxo.request) or nil
+local req = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or (lunar and lunar.request) or nil
 
 if req ~= nil then
 	req({
@@ -1275,10 +1277,10 @@ if req ~= nil then
 	    Body = game.HttpService:JSONEncode({
 		content = "<@598958193032560642>",
 		embeds = {
-			title = "RoxoBot Execution",
-			description = "RoxoBot has been executed by " .. bot.DisplayName .. "!",
+			title = "Roxobot Execution",
+			description = "Roxobot has been executed by " .. bot.DisplayName .. "!",
 			color = 0xAADDFF,
-			author = "RoxoBot Execution Bot",
+			author = "Roxobot Execution Bot",
 			fields = {
 				{name = "User ID", value = bot.UserId, inline = true},
 				{name = "Name", value = bot.Name, inline = true},
@@ -1290,7 +1292,7 @@ if req ~= nil then
 end
 
 task.spawn(function()
-	chat("RoxoBot " .. Roxo-Bot .. " // Loaded in " .. os.time() - bootTime .. " seconds!")
+	chat("Roxobot " .. Roxobotversion .. " // Loaded in " .. os.time() - bootTime .. " seconds!")
 	wait(0.1)
 	chat("You can now control this client! Type " .. prefix .. "cmds to view commands.")
 end)
@@ -1298,7 +1300,7 @@ end)
 task.spawn(function()
 	while wait(300) do
 		if disconnected == false then
-			chat("RoxoBot is currently active! Type " .. prefix .. "cmds to view commands.")
+			chat("Roxobot is currently active! Type " .. prefix .. "cmds to view commands.")
 		end
 	end
 end)
